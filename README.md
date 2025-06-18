@@ -7,11 +7,13 @@
 
 ***A comprehensive system for evaluating and scoring Vision language models based on multiple criteria.***
 
+***Currently under development, this scoring framework is not yet functional.***
+
 <br>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](https://github.com/LSeu-Open/LLMScoreEngine/blob/main/LICENSE)
-![LastCommit](https://img.shields.io/github/last-commit/LSeu-Open/LLMScoreEngine?style=flat)
-![LastRelease](https://img.shields.io/github/v/release/LSeu-Open/LLMScoreEngine?style=flat)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](https://github.com/LSeu-Open/VLMScoreEngine/blob/main/LICENSE)
+![LastCommit](https://img.shields.io/github/last-commit/LSeu-Open/VLMScoreEngine?style=flat)
+
 
 </div>
 
