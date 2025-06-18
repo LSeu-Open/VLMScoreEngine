@@ -34,6 +34,9 @@ Please note that this is a beta version and the scoring system is subject to cha
 
 To help us refine and improve VLMScoreEngine during this beta phase, we actively encourage user feedback, bug reports, and contributions to help us refine and improve LLMScoreEngine. Please feel free to [open an issue](https://github.com/LSeu-Open/LLMScoreEngine/issues) or [contribute](CONTRIBUTING.md) to the project. Make sure to respect the [Code of Conduct](CODE_OF_CONDUCT.md).
 
+>[!IMPORTANT]
+> This repository is a fork of the [LLMScoreEngine](https://github.com/LSeu-Open/LLMScoreEngine), reoriented to score Vision Language Models (VLMs) instead of Large Language Models (LLMs).
+
 ## Project Structure
 
 ```text
