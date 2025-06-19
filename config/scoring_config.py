@@ -53,65 +53,78 @@ SCORE_WEIGHTS = types.MappingProxyType({
 # Weights for different benchmarks
 BENCHMARK_WEIGHTS = types.MappingProxyType({
     'entity_benchmarks': types.MappingProxyType({
-        'artificial_analysis': 10, # Generalist
-        'OpenCompass': 10, # Generalist
-        'Dubesord_LLM': 10, # Generalist
-        'LLM Explorer': 10, # Generalist
-        'Livebench': 10, # Generalist
-        'open_llm': 10, # Generalist
-        'UGI Leaderboard': 10, # Censor
-        'big_code_bench': 10, # Coding
-        'EvalPlus Leaderboard': 10, # Coding
         'Open VLM': 10 # Vision
     }),
     'dev_benchmarks': types.MappingProxyType({
-        # General knowledge and reasoning
+        # Language capabilities
         'MMLU': 3.0,
         'MMLU Pro': 5.0,
         'BigBenchHard': 3.0,
         'GPQA diamond': 7.0,
         'DROP': 3.0,
-        'Humanity\'s Last Exam': 4.0,
         'HellaSwag': 3.0,
         'ARC-C': 3.0,
-        # Instruction following
-        'Wild Bench': 3.0,
-        'MT-bench': 3.0,
-        'IFEval': 3.0,
-        'Arena-Hard': 3.0,
-        # Math
-        'MATH': 3.0,
-        'GSM-8K': 3.0,
-        'AIME': 4.0,
-        # Coding
-        'HumanEval': 1.0,
-        'MBPP': 1.0,
-        'LiveCodeBench': 4.0,
-        'Aider Polyglot': 2.0,
-        'SWE-Bench': 2.0,
-        'SciCode': 3.0,
-        # Multilingual
         'MGSM': 2.0,
         'MMMLU': 2.0,
         'C-Eval or CMMLU': 2.0,
         'AraMMLu': 2.0,
-        # Context
-        'LongBench': 2.0,
-        'RULER 128K': 2.0,
-        'RULER 32K': 2.0,
-        'MTOB': 2.0,
-        # Function calling (tool use and agent)
-        'BFCL': 3.0,
-        'AgentBench': 2.0,
-        'Gorilla Benchmark': 1.0,
-        'ToolBench': 2.0,
-        'MINT': 2.0,
-        # Vision
-        'MMMU': 2.0,
-        'Mathvista': 3.0,
+        # multimodal multilingual
+        'MMMB': 1.0,
+        'MTVQA': 1.0,
+        'MM-MT-Bench': 1.0,
+        'Multilingual MMBench': 1.0,
+        # Multimodal reasoning and math
+        'MMMU': 1.0,
+        'Mathvista': 1.0,
+        'MathVision': 1.0,
+        'MathVerse': 1.0,
+        'VQAv2': 1.0,
+        # OCR and Document understanding
+        'AI2D': 1.0,
         'ChartQA': 1.0,
+        'TextVQA': 1.0,
         'DocVQA': 1.0,
-        'AI2D': 1.0
+        'InfoVQA':1.0,
+        'CharXiv': 1.0,
+        # Multi-image and real-world understanding
+        'BLINK': 1.0,
+        'Mantis': 1.0,
+        'MMIU': 1.0,
+        'MuirBench': 1.0,
+        'MMT': 1.0,
+        'RealWorldQA': 1.0,
+        'MIRB': 1.0,
+        'WildVlsion': 1.0,
+        'R-Bench': 1.0,
+        # Mutlimodal and hallucination
+        'MME': 1.0,
+        'MMB': 1.0,
+        'MMBv1.1': 1.0,
+        'MMVet': 1.0,
+        'MMVetv2': 1.0,
+        'HallBench': 1.0,
+        'MMHal': 1.0,
+        'CRP': 1.0,
+        'POPE': 1.0,
+        # Visual Grounding
+        'RefCOCO': 1.0,
+        'RefCOCO+': 1.0,
+        'RefCOCOg': 1.0,
+        # GUI grounding
+        'Obj.count': 1.0,
+        'Abs.Dist.': 1.0,
+        'Obj.size': 1.0,
+        'Rel.Dist.': 1.0,
+        'Rel.Dir.': 1.0,
+        'ScreenSpot': 1.0,
+        'ScreenSpot-V2': 1.0,
+        # Video understanding
+        'Video-MME': 1.0,
+        'MVBench': 1.0,
+        'MMBench-Video': 1.0,
+        'MLVU': 1.0,
+        'LongVideoBench': 1.0,
+        'CG-Bench': 1.0,   
     })
 })
 
@@ -167,7 +180,7 @@ MODEL_ARCHITECTURE_FACTORS = types.MappingProxyType({
 
 # Bounds for community score components
 COMMUNITY_SCORE_BOUNDS = types.MappingProxyType({
-    'lm_sys_arena_score': types.MappingProxyType({
+    'vision_lm_sys_arena_score': types.MappingProxyType({
         'min': 1000,  # Minimum expected ELO rating
         'max': 1500   # Maximum expected ELO rating
     }),
