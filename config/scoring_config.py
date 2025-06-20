@@ -53,78 +53,69 @@ SCORE_WEIGHTS = types.MappingProxyType({
 # Weights for different benchmarks
 BENCHMARK_WEIGHTS = types.MappingProxyType({
     'entity_benchmarks': types.MappingProxyType({
-        'Open VLM': 10 # Vision
+        'Open VLM': 20,
+        'Open Compass Multimodal': 20,
+        'OpenVLM Video Leaderboard': 20,
+        'OpenVLM Subjective Leaderboard': 20,
+        'Vista SEAL Leaderboard': 20,
+
     }),
     'dev_benchmarks': types.MappingProxyType({
-        # Language capabilities
-        'MMLU': 3.0,
-        'MMLU Pro': 5.0,
-        'BigBenchHard': 3.0,
-        'GPQA diamond': 7.0,
-        'DROP': 3.0,
-        'HellaSwag': 3.0,
-        'ARC-C': 3.0,
-        'MGSM': 2.0,
-        'MMMLU': 2.0,
+        # Language capabilities (22)
+        'MMLU': 2.0,
+        'MMLU Pro': 4.0,
+        'BigBenchHard': 2.0,
+        'GPQA diamond': 6.0,
+        'DROP': 2.0,
+        'HellaSwag': 2.0,
+        'ARC-C': 2.0,
         'C-Eval or CMMLU': 2.0,
-        'AraMMLu': 2.0,
-        # multimodal multilingual
-        'MMMB': 1.0,
-        'MTVQA': 1.0,
-        'MM-MT-Bench': 1.0,
-        'Multilingual MMBench': 1.0,
-        # Multimodal reasoning and math
-        'MMMU': 1.0,
-        'Mathvista': 1.0,
-        'MathVision': 1.0,
-        'MathVerse': 1.0,
+        # multimodal multilingual (8)
+        'MMMB': 2.0,
+        'MTVQA': 2.0,
+        'MM-MT-Bench': 2.0,
+        'Multilingual MMBench': 2.0,
+        # Multimodal reasoning and math (12)
+        'MMMU': 2.0,
+        'Mathvista': 3.0,
+        'MathVision': 3.0,
+        'MathVerse': 3.0,
         'VQAv2': 1.0,
-        # OCR and Document understanding
+        # OCR and Document understanding (8)
         'AI2D': 1.0,
         'ChartQA': 1.0,
         'TextVQA': 1.0,
         'DocVQA': 1.0,
         'InfoVQA':1.0,
-        'CharXiv': 1.0,
-        # Multi-image and real-world understanding
-        'BLINK': 1.0,
-        'Mantis': 1.0,
-        'MMIU': 1.0,
-        'MuirBench': 1.0,
-        'MMT': 1.0,
-        'RealWorldQA': 1.0,
-        'MIRB': 1.0,
-        'WildVlsion': 1.0,
-        'R-Bench': 1.0,
-        # Mutlimodal and hallucination
-        'MME': 1.0,
-        'MMB': 1.0,
-        'MMBv1.1': 1.0,
-        'MMVet': 1.0,
-        'MMVetv2': 1.0,
-        'HallBench': 1.0,
-        'MMHal': 1.0,
-        'CRP': 1.0,
-        'POPE': 1.0,
-        # Visual Grounding
+        'CharXiv': 3.0,
+        'Chart-X/Chart-VQA': 3.0,
+        # Multi-image and real-world understanding (17)
+        'BLINK': 2.0,
+        'Mantis': 2.0,
+        'MMIU': 2.0,
+        'MuirBench': 3.0,
+        'RealWorldQA': 3.0,
+        'MIRB': 2.0,
+        'WildVision': 3.0,
+        # Multimodal and hallucination (12)
+        'HallBench': 3.0,
+        'MMHal': 3.0,
+        'CRP': 3.0,
+        'POPE': 3.0,
+        # Visual Grounding (3)
         'RefCOCO': 1.0,
         'RefCOCO+': 1.0,
         'RefCOCOg': 1.0,
-        # GUI grounding
-        'Obj.count': 1.0,
-        'Abs.Dist.': 1.0,
-        'Obj.size': 1.0,
-        'Rel.Dist.': 1.0,
-        'Rel.Dir.': 1.0,
-        'ScreenSpot': 1.0,
-        'ScreenSpot-V2': 1.0,
-        # Video understanding
-        'Video-MME': 1.0,
-        'MVBench': 1.0,
-        'MMBench-Video': 1.0,
-        'MLVU': 1.0,
-        'LongVideoBench': 1.0,
-        'CG-Bench': 1.0,   
+        # GUI grounding (6)
+        'ScreenSpot': 3.0,
+        'ScreenSpot-V2': 3.0,
+        # Video understanding (12)
+        'Video-MME': 2.0,
+        'MVBench': 2.0,
+        'MMBench-Video': 2.0,
+        'MLVU': 2.0,
+        'LongVideoBench': 2.0,
+        'CG-Bench': 2.0,   
     })
 })
 
