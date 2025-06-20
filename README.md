@@ -145,14 +145,14 @@ Models data should be stored as JSON files in the `Models` directory, with the f
 
 ```json
 {
-    "entity_benchmarks": [     
+    "entity_benchmarks": {     
         "Open VLM": null,
         "Open Compass Multimodal": null,
         "OpenVLM Video Leaderboard": null,
         "OpenVLM Subjective Leaderboard": null,
         "Vista SEAL Leaderboard": null
-    ],
-    "dev_benchmarks": [
+     },
+    "dev_benchmarks": {
         "MMLU": null,
         "MMLU Pro": null,
         "BigBenchHard": null,
