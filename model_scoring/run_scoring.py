@@ -131,7 +131,12 @@ def _display_final_score(results: ScoringResults) -> None:
     """
     model_name = results.get('model_name', 'Unknown Model')
     final_score = results.get('scores', {}).get('final_score', 'N/A')
-    print(f"{model_name}: {final_score:.4f}")
+    
+    # Ensure final_score is a number before formatting
+    if isinstance(final_score, (int, float)):
+        print(f"{model_name}: {final_score:.4f}")
+    else:
+        print(f"{model_name}: {final_score}")
 
 def batch_process_models(model_names: List[str], models_directory: str = MODELS_DIR, 
                          results_directory: str = RESULTS_DIR, quiet: bool = False,
@@ -187,7 +192,9 @@ def batch_process_models(model_names: List[str], models_directory: str = MODELS_
     # Calculate elapsed time
     elapsed_time = time.time() - start_time
     
-    if quiet:
+    # In quiet mode, display a clean summary of final scores
+    if quiet and all_results:
+        print("\n--- Final Scores ---")
         for res in all_results:
             _display_final_score(res)
         return
