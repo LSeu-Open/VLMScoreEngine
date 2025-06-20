@@ -136,7 +136,7 @@ class ModelScorer:
             return average_performance * self.config.SCORE_WEIGHTS['dev_benchmarks']
         return 0.0
 
-    def calculate_community_score(self, lm_sys_arena_elo_rating: Optional[float], hf_score: Optional[float]) -> float:
+    def calculate_community_score(self, vision_lm_sys_arena_score: Optional[float], hf_score: Optional[float]) -> float:
         """
         Calculate the total community score, scaled to the weight defined in SCORE_WEIGHTS.
 
@@ -144,34 +144,34 @@ class ModelScorer:
         - If only one score is present, it contributes 100% of the category weight.
         
         Args:
-            lm_sys_arena_elo_rating (Optional[float]): Model's LMsys Arena ELO rating.
+            vision_lm_sys_arena_score (Optional[float]): Model's Vision LMsys Arena ELO rating.
             hf_score (Optional[float]): Model's Hugging Face community score (0-10).
             
         Returns:
             float: Total community score for the category.
         """
-        if lm_sys_arena_elo_rating is None and hf_score is None:
+        if vision_lm_sys_arena_score is None and hf_score is None:
             return 0.0
             
         total_score = 0.0
-        elo_bounds = self.config.COMMUNITY_SCORE_BOUNDS['lm_sys_arena_score']
+        elo_bounds = self.config.COMMUNITY_SCORE_BOUNDS['vision_lm_sys_arena_score']
         hf_bounds = self.config.COMMUNITY_SCORE_BOUNDS['hf_score']
         category_weight = self.config.SCORE_WEIGHTS['community_score']
 
-        if lm_sys_arena_elo_rating is not None:
+        if vision_lm_sys_arena_score is not None:
             min_elo, max_elo = elo_bounds['min'], elo_bounds['max']
             elo_scale = category_weight if hf_score is None else category_weight / 2.0
             
             if max_elo == min_elo:
-                normalized_elo = 0.0 if lm_sys_arena_elo_rating <= min_elo else elo_scale
+                normalized_elo = 0.0 if vision_lm_sys_arena_score <= min_elo else elo_scale
             else:
-                normalized_elo = ((lm_sys_arena_elo_rating - min_elo) / (max_elo - min_elo)) * elo_scale
+                normalized_elo = ((vision_lm_sys_arena_score - min_elo) / (max_elo - min_elo)) * elo_scale
             
             total_score += max(0.0, min(elo_scale, normalized_elo))
         
         if hf_score is not None:
             min_hf, max_hf = hf_bounds['min'], hf_bounds['max']
-            hf_scale = category_weight if lm_sys_arena_elo_rating is None else category_weight / 2.0
+            hf_scale = category_weight if vision_lm_sys_arena_score is None else category_weight / 2.0
             
             # Normalize 0-10 hf_score to the required scale
             normalized_hf = (hf_score / (max_hf - min_hf)) * hf_scale
@@ -277,11 +277,34 @@ class ModelScorer:
         Returns:
             float: The final aggregated score, rounded to 4 decimal places.
         """
-        # Calculate scores for all categories
+        # Calculate scores for benchmark categories first
         self.entity_score = self.calculate_entity_benchmarks(entity_benchmarks)
         self.dev_score = self.calculate_dev_benchmarks(dev_benchmarks)
+
+        # Calculate a single, unweighted benchmark performance score (0-100)
+        # to be used in the technical score calculation.
+        all_benchmark_weights = {
+            **self.config.BENCHMARK_WEIGHTS['entity_benchmarks'],
+            **self.config.BENCHMARK_WEIGHTS['dev_benchmarks']
+        }
+        all_benchmark_scores = {**entity_benchmarks, **dev_benchmarks}
+
+        score = 0.0
+        total_weight = 0.0
+        for bench_key, result in all_benchmark_scores.items():
+            if bench_key in all_benchmark_weights and result is not None:
+                score += (result * all_benchmark_weights[bench_key])
+                total_weight += all_benchmark_weights[bench_key]
+
+        overall_benchmark_score = (score / total_weight * 100) if total_weight > 0 else 0.0
+        
+        # Calculate scores for the remaining categories
         self.community_score = self.calculate_community_score(**community_inputs)
-        self.technical_score = self.calculate_technical_score(**tech_inputs)
+        
+        # Pass the overall benchmark score to the technical score calculation
+        tech_inputs_with_benchmark = tech_inputs.copy()
+        tech_inputs_with_benchmark['benchmark_score'] = overall_benchmark_score
+        self.technical_score = self.calculate_technical_score(**tech_inputs_with_benchmark)
         
         # Display the score breakdown
         self._display_score_breakdown(quiet=quiet)
