@@ -28,6 +28,7 @@ from typing import Optional, Any
 import sys
 from pathlib import Path
 from types import ModuleType
+import logging
 
 # Add project root to sys.path for absolute imports.
 project_root = Path(__file__).resolve().parents[2]
@@ -35,6 +36,8 @@ if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
 from config import scoring_config as default_scoring_config
+
+logger = logging.getLogger(__name__)
 
 # ------------------------------------------------------------------------------------------------
 # ModelScorer class
@@ -250,15 +253,15 @@ class ModelScorer:
         if quiet:
             return
             
-        print(f"\n=== Score Breakdown for {self.model_name} ===")
-        print(f"{'Entity Benchmarks:':<20} {self.entity_score:.2f} / {self.config.SCORE_WEIGHTS['entity_benchmarks']}")
-        print(f"{'Dev Benchmarks:':<20} {self.dev_score:.2f} / {self.config.SCORE_WEIGHTS['dev_benchmarks']}")
-        print(f"{'Community Score:':<20} {self.community_score:.2f} / {self.config.SCORE_WEIGHTS['community_score']}")
-        print(f"{'Technical Score:':<20} {self.technical_score:.2f} / {self.config.SCORE_WEIGHTS['technical_score']}")
-        print("----------------------------------------")
+        logger.info(f"\n=== Score Breakdown for {self.model_name} ===")
+        logger.info(f"{'Entity Benchmarks:':<20} {self.entity_score:.2f} / {self.config.SCORE_WEIGHTS['entity_benchmarks']}")
+        logger.info(f"{'Dev Benchmarks:':<20} {self.dev_score:.2f} / {self.config.SCORE_WEIGHTS['dev_benchmarks']}")
+        logger.info(f"{'Community Score:':<20} {self.community_score:.2f} / {self.config.SCORE_WEIGHTS['community_score']}")
+        logger.info(f"{'Technical Score:':<20} {self.technical_score:.2f} / {self.config.SCORE_WEIGHTS['technical_score']}")
+        logger.info("----------------------------------------")
         final_score = self.entity_score + self.dev_score + self.community_score + self.technical_score
-        print(f"{'Final Score:':<20} {final_score:.2f} / 100")
-        print("========================================")
+        logger.info(f"{'Final Score:':<20} {final_score:.2f} / 100")
+        logger.info("========================================")
 
     def calculate_final_score(self, entity_benchmarks, dev_benchmarks, community_inputs, tech_inputs, quiet: bool = False) -> float:
         """
