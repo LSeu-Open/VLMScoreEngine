@@ -198,7 +198,7 @@ Models data should be stored as JSON files in the `Models` directory, with the f
         "MMBench-Video": null,
         "MLVU": null,
         "LongVideoBench": null,
-        "CG-Bench": null,
+        "CG-Bench": null
     },
     "community_score": {
         "vision_lm_sys_arena_score": null,
