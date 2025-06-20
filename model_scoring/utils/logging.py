@@ -34,8 +34,9 @@ def configure_logging(level=logging.INFO, log_file=LOG_FILE, console_output=True
         logging.Logger: Configured logger instance
     """
     # Reset any existing handlers
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
+    if not logging.root.handlers:
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
         
     # Create formatter
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -79,8 +80,9 @@ def configure_console_only_logging(level=logging.INFO, quiet=False):
         logging.Logger: Configured logger instance
     """
     # Reset any existing handlers
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
+    if not logging.root.handlers:
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
         
     # Suppress INFO messages in quiet mode
     log_level = logging.ERROR if quiet else level
