@@ -146,76 +146,76 @@ Models data should be stored as JSON files in the `Models` directory, with the f
 ```json
 {
     "entity_benchmarks": {
-        'Open VLM': null,
-        'Open Compass Multimodal': null,
-        'OpenVLM Video Leaderboard': null,
-        'OpenVLM Subjective Leaderboard': null,
-        'Vista SEAL Leaderboard': null
+        "Open VLM": null,
+        "Open Compass Multimodal": null,
+        "OpenVLM Video Leaderboard": null,
+        "OpenVLM Subjective Leaderboard": null,
+        "Vista SEAL Leaderboard": null
     },
     "dev_benchmarks": {
-        'MMLU': null,
-        'MMLU Pro': null,
-        'BigBenchHard': null,
-        'GPQA diamond': null,
-        'DROP': null,
-        'HellaSwag': null,
-        'ARC-C': null,
-        'MGSM': null,
-        'MMMLU': null,
-        'C-Eval or CMMLU': null,
-        'AraMMLu': null,
-        'MMMB': null,
-        'MTVQA': null,
-        'MM-MT-Bench': null,
-        'Multilingual MMBench': null,
-        'MMMU': null,
-        'Mathvista': null,
-        'MathVision': null,
-        'MathVerse': null,
-        'VQAv2': null,
-        'AI2D': null,
-        'ChartQA': null,
-        'TextVQA': null,
-        'DocVQA': null,
-        'InfoVQA': null,
-        'CharXiv': null,
-        'BLINK': null,
-        'Mantis': null,
-        'MMIU': null,
-        'MuirBench': null,
-        'MMT': null,
-        'RealWorldQA': null,
-        'MIRB': null,
-        'WildVlsion': null,
-        'R-Bench': null,
-        'MME': null,
-        'MMB': null,
-        'MMBv1.1': null,
-        'MMVet': null,
-        'MMVetv2': null,
-        'HallBench': null,
-        'MMHal': null,
-        'CRP': null,
-        'POPE': null,
-        'RefCOCO': null,
-        'RefCOCO+': null,
-        'RefCOCOg': null,
-        'Obj.count': null,
-        'Abs.Dist.': null,
-        'Obj.size': null,
-        'Rel.Dist.': null,
-        'Rel.Dir.': null,
-        'ScreenSpot': null,
-        'ScreenSpot-V2': null,
-        'Video-MME': null,
-        'MVBench': null,
-        'MMBench-Video': null,
-        'MLVU': null,
-        'LongVideoBench': null,
-        'CG-Bench': null
+        "MMLU": null,
+        "MMLU Pro": null,
+        "BigBenchHard": null,
+        "GPQA diamond": null,
+        "DROP": null,
+        "HellaSwag": null,
+        "ARC-C": null,
+        "MGSM": null,
+        "MMMLU": null,
+        "C-Eval or CMMLU": null,
+        "AraMMLu": null,
+        "MMMB": null,
+        "MTVQA": null,
+        "MM-MT-Bench": null,
+        "Multilingual MMBench": null,
+        "MMMU": null,
+        "Mathvista": null,
+        "MathVision": null,
+        "MathVerse": null,
+        "VQAv2": null,
+        "AI2D": null,
+        "ChartQA": null,
+        "TextVQA": null,
+        "DocVQA": null,
+        "InfoVQA": null,
+        "CharXiv": null,
+        "BLINK": null,
+        "Mantis": null,
+        "MMIU": null,
+        "MuirBench": null,
+        "MMT": null,
+        "RealWorldQA": null,
+        "MIRB": null,
+        "WildVlsion": null,
+        "R-Bench": null,
+        "MME": null,
+        "MMB": null,
+        "MMBv1.1": null,
+        "MMVet": null,
+        "MMVetv2": null,
+        "HallBench": null,
+        "MMHal": null,
+        "CRP": null,
+        "POPE": null,
+        "RefCOCO": null,
+        "RefCOCO+": null,
+        "RefCOCOg": null,
+        "Obj.count": null,
+        "Abs.Dist.": null,
+        "Obj.size": null,
+        "Rel.Dist.": null,
+        "Rel.Dir.": null,
+        "ScreenSpot": null,
+        "ScreenSpot-V2": null,
+        "Video-MME": null,
+        "MVBench": null,
+        "MMBench-Video": null,
+        "MLVU": null,
+        "LongVideoBench": null,
+        "CG-Bench": null
     },
     "community_score": {
-        "lm_sys_arena_score": null,
+        "vision_lm_sys_arena_score": null,
         "hf_score": null
     },
     "model_specs": {
@@ -240,16 +240,12 @@ All other fields are optional and can remain null if data is not available.
 
 - `entity_benchmarks` :
 
-* [Artificial Analysis](https://artificialanalysis.ai/)
-* [OpenCompass](https://rank.opencompass.org.cn/home)
-* [LLM Explorer](https://llm.extractum.io/list/)
-* [Livebench](https://livebench.ai/#/)
-* [Open LLM](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/)
-* [UGI Leaderboard](https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard)
-* [Big Code Bench](https://bigcode-bench.github.io/)
-* [EvalPlus Leaderboard](https://evalplus.github.io/leaderboard.html)
-* [Dubesord_LLM](https://dubesor.de/benchtable)
 * [Open VLM](https://huggingface.co/spaces/opencompass/open_vlm_leaderboard)
+* [OpenCompass MultiModal](https://rank.opencompass.org.cn/home)
+* [OpenVLM Subjective Leaderboard](https://huggingface.co/spaces/opencompass/openvlm_subjective_leaderboard)
+* [OpenVLM Video Leaderboard](https://huggingface.co/spaces/opencompass/openvlm_video_leaderboard)
+* [Vista SEAL Leaderboard](https://scale.com/leaderboard/visual_language_understanding)
+* [LMsys_arena_Vision score](https://lmarena.ai/leaderboard/vision)
 
 - `dev_benchmarks` : You usually find the data on the model's page on the provider's website or on the model's page on the [Hugging Face](https://huggingface.co/) website.
 
@@ -317,86 +313,6 @@ If you prefer to run the script from your IDE without command-line arguments, yo
 ## Results Data Format
 
 Results will be stored as JSON files in the `Results` directory, with the following structure (example for Deepseek-R1):
-
-```json
-{
-    "model_name": "Deepseek-R1",
-    "scores": {
-        "entity_score": 18.84257142857143,
-        "dev_score": 23.063999999999997,
-        "external_score": 41.906571428571425,
-        "community_score": 16.76,
-        "technical_score": 16.95878387917363,
-        "final_score": 75.63,
-        "avg_performance": 73.21368421052631
-    },
-    "input_data": {
-        "entity_benchmarks": {
-            "artificial_analysis": 0.6022,
-            "OpenCompass": 0.867,
-            "LLM Explorer": 0.59,
-            "Livebench": 0.7249,
-            "open_llm": null,
-            "UGI Leaderboard": 0.5565,
-            "big_code_bench": 0.35100000000000003,
-            "EvalPlus Leaderboard": null,
-            "Dubesord_LLM": 0.705,
-            "Open VLM": null
-        },
-        "dev_benchmarks": {
-            "MMLU": 0.9079999999999999,
-            "MMLU Pro": 0.84,
-            "BigBenchHard": null,
-            "GPQA diamond": 0.715,
-            "DROP": 0.922,
-            "HellaSwag": null,
-            "Humanity's Last Exam": null,
-            "ARC-C": null,
-            "Wild Bench": null,
-            "MT-bench": null,
-            "IFEval": 0.833,
-            "Arena-Hard": 0.9229999999999999,
-            "MATH": 0.973,
-            "GSM-8K": null,
-            "AIME": 0.7979999999999999,
-            "HumanEval": null,
-            "MBPP": null,
-            "LiveCodeBench": 0.659,
-            "Aider Polyglot": 0.5329999999999999,
-            "SWE-Bench": 0.49200000000000005,
-            "SciCode": null,
-            "MGSM": null,
-            "MMMLU": null,
-            "C-Eval or CMMLU": 0.9179999999999999,
-            "AraMMLu": null,
-            "LongBench": null,
-            "RULER 128K": null,
-            "RULER 32K": null,
-            "MTOB": null,
-            "BFCL": null,
-            "AgentBench": null,
-            "Gorilla Benchmark": null,
-            "ToolBench": null,
-            "MINT": null,
-            "MMMU": null,
-            "Mathvista": null,
-            "ChartQA": null,
-            "DocVQA": null,
-            "AI2D": null
-        },
-        "community_score": {
-            "lm_sys_arena_score": 1363,
-            "hf_score": 9.5
-        },
-        "model_specs": {
-            "price": 0.55,
-            "context_window": 128000,
-            "param_count": 685,
-            "architecture": "moe"
-        }
-    }
-}
-```
 
 ## License
 
